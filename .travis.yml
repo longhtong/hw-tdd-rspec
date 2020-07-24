@@ -5,7 +5,7 @@ cache: bundler
 bundler_args: --without production
 env:
   global:
-    - CC_TEST_REPORTER_ID=000000000000000000000000000000000000000000000000000000000000
+    - CC_TEST_REPORTER_ID=9304a224f589e6c530a89794c91c4e4c33fe571b4099c9e968ba10d837a5fc99
     - CCTR=/tmp/cc-test-reporter
 before_install:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > $CCTR
@@ -13,7 +13,7 @@ before_install:
   - $CCTR before-build
 script:
   - bundle exec rake db:setup
-  - bundle exec rake rspec
+  - bundle exec rake spec
   - $CCTR format-coverage --output coverage/codeclimate.$SUITE.json
   - bundle exec rake cucumber
   - $CCTR format-coverage --output coverage/codeclimate.$SUITE.json
