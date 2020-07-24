@@ -13,6 +13,8 @@ Bundler.require(:default, Rails.env)
 
 module Rottenpotatoes
   class Application < Rails::Application
+      Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
